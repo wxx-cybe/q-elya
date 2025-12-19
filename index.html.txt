@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seni Seviyorum</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Arka Plan Müzik Kontrolü (Gizli) */
+        #music { display: none; }
+
+        /* Sayfalar */
+        .page {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .active { display: flex; }
+
+        img {
+            max-width: 80%;
+            max-height: 50vh;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 2.5rem; text-shadow: 2px 2px 10px #ff007b; padding: 0 20px; }
+
+        /* Giriş Butonu */
+        #start-btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            background: linear-gradient(45deg, #ff007b, #ff5e00);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff007b;
+            transition: 0.3s;
+        }
+
+        /* Emojiler */
+        .emoji {
+            position: absolute;
+            font-size: 30px;
+            user-select: none;
+            z-index: 100;
+        }
+
+        /* Karar Butonları */
+        .btn-group { margin-top: 20px; }
+        .choice-btn {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .yes { background-color: #28a745; color: white; }
+        .no { background-color: #dc3545; color: white; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="Gullu-Odum-Kopuyor.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="page0" class="page active">
+        <button id="start-btn" onclick="startExperience()">Senin İçin Bir
